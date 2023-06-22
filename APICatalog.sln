@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiCatalogo", "ApiCatalogo\ApiCatalogo.csproj", "{890F5861-23D6-4C9C-BF37-939A42AF1945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiCatalog", "ApiCatalogo\ApiCatalog.csproj", "{890F5861-23D6-4C9C-BF37-939A42AF1945}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
