@@ -63,6 +63,14 @@ app.MapDelete("/categories/{id:int}", async (int id, AppDbContext db) =>
     return Results.NoContent();
 });
 
+app.MapGet("/products", async (AppDbContext db) => await db.Products.ToListAsync());
+
+app.MapPost("/products", async (Product product, AppDbContext db) => {
+    db.Products.Add(product);
+    await db.SaveChangesAsync();
+    return Results.Created($"/products/{product.ProductId}", product);
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
