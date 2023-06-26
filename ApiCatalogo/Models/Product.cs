@@ -1,4 +1,6 @@
-﻿namespace ApiCatalog.Models
+﻿using System.Text.Json.Serialization;
+
+namespace ApiCatalog.Models
 {
     public class Product
     {
@@ -9,8 +11,8 @@
         public string? Image { get; set; }
         public DateTime BoughtDate { get; set; }
         public int Stock { get; set; }
-
         public int CategoryId { get; set; }
+        [JsonIgnore]
         public Category? Category { get; set; }
     }
 }
