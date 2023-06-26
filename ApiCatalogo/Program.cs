@@ -65,6 +65,13 @@ app.MapDelete("/categories/{id:int}", async (int id, AppDbContext db) =>
 
 app.MapGet("/products", async (AppDbContext db) => await db.Products.ToListAsync());
 
+app.MapGet("/products/{id:int}", async (int id, AppDbContext db) => {
+    return await db.Products.FindAsync(id)
+                 is Product Products
+                 ? Results.Ok(Products)
+                 : Results.NotFound();
+});
+
 app.MapPost("/products", async (Product product, AppDbContext db) => {
     db.Products.Add(product);
     await db.SaveChangesAsync();
