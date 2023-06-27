@@ -1,4 +1,5 @@
 using ApiCatalog.ApiEndpoints;
+using ApiCatalog.AppServicesExtensions;
 using ApiCatalog.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,11 +19,10 @@ var app = builder.Build();
 app.MapCategoriesEndPoints();
 app.MapProductsEndpoints();
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+var environment = app.Environment;
+
+app.UseExceptionHandling(environment)
+    .UseSwaggerMiddleware()
+    .UseAppCors();
 
 app.Run();
